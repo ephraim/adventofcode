@@ -21,7 +21,6 @@ if __name__ == "__main__":
             continue
 
         subbags = re.findall("(\d [^,\.]+)", m.group("contain"))
-        #print(m.group("bag"), ": ", m.group("contain"), " => ", len(subbags))
         for s in subbags:
             m = re.match("(?P<amount>\d) (?P<subbag>[a-z ]+bag)s?", s)
             if not m:
@@ -45,8 +44,6 @@ if __name__ == "__main__":
                 ret = find(bags, subbag, n)
                 if ret:
                     return ret
-            #else:
-            #    print("subbag not found! %s"%s)
         return False
 
     result = []
